@@ -89,3 +89,9 @@ def delete_user_db(user_id):
             db.commit()
             return True
         return "Неверный id"
+
+
+def get_all_users():
+    with next(get_db()) as db:
+        users = db.query(User).all()
+        return users
